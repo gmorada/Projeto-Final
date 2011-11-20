@@ -27,5 +27,18 @@ Event.observe(document,'dom:loaded',function()
 
 $(document).ready(function()
 {
-    $('.tablesorter').tablesorter();
+    var headers = {}
+    $('.tablesorter th').each(function(i, obj)
+    {
+        str = obj.innerHTML;
+        if(!((str) && (str.search('<span'))))
+        {
+            headers[i] = { sorter: false};
+        }
+    });
+    
+    $('.tablesorter').tablesorter(
+    {
+        headers: headers
+    });
 });
