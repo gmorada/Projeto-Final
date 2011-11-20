@@ -23,7 +23,7 @@ abstract class BaseSubjectForm extends BaseFormDoctrine
 
     $this->setValidators(array(
       'subj_cd_key'  => new sfValidatorChoice(array('choices' => array($this->getObject()->get('subj_cd_key')), 'empty_value' => $this->getObject()->get('subj_cd_key'), 'required' => false)),
-      'subj_nm_code' => new sfValidatorString(array('max_length' => 10)),
+      'subj_nm_code' => new sfValidatorString(array('max_length' => 10, 'required' => false)),
       'subj_nm_name' => new sfValidatorString(array('max_length' => 40)),
       'cour_cd_key'  => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Course'), 'required' => false)),
     ));

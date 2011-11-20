@@ -22,7 +22,7 @@ abstract class BaseCourseForm extends BaseFormDoctrine
 
     $this->setValidators(array(
       'cour_cd_key'  => new sfValidatorChoice(array('choices' => array($this->getObject()->get('cour_cd_key')), 'empty_value' => $this->getObject()->get('cour_cd_key'), 'required' => false)),
-      'cour_nb_code' => new sfValidatorInteger(),
+      'cour_nb_code' => new sfValidatorInteger(array('required' => false)),
       'cour_nm_name' => new sfValidatorString(array('max_length' => 80)),
     ));
 

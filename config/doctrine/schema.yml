@@ -40,7 +40,7 @@ Course:
       fixed: false
       unsigned: false
       primary: false
-      notnull: true
+      notnull: false
       autoincrement: false
     cour_nm_name:
       type: string(80)
@@ -677,7 +677,7 @@ Subject:
       fixed: false
       unsigned: false
       primary: false
-      notnull: true
+      notnull: false
       autoincrement: false
     subj_nm_name:
       type: string(40)

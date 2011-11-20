@@ -13,7 +13,7 @@ abstract class BaseSubjectFormFilter extends BaseFormFilterDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'subj_nm_code' => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'subj_nm_code' => new sfWidgetFormFilterInput(),
       'subj_nm_name' => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'cour_cd_key'  => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Course'), 'add_empty' => true)),
     ));
