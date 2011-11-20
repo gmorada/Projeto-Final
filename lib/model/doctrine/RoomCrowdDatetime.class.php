@@ -50,14 +50,20 @@ class RoomCrowdDatetime extends BaseRoomCrowdDatetime
     public function getRocdDtStartTime()
     {
         $time = $this->_get('rocd_dt_start_time');
-        $time = explode(':', $time);
-        return date('H:i', mktime($time[0], $time[1], $time[2]));
+        if($time)
+        {
+            $time = explode(':', $time);
+            return date('H:i', mktime($time[0], $time[1], $time[2]));
+        }
     }
 
     public function getRocdDtFinalTime()
     {
         $time = $this->_get('rocd_dt_final_time');
-        $time = explode(':', $time);
-        return date('H:i', mktime($time[0], $time[1], $time[2]));
+        if($time)
+        {
+            $time = explode(':', $time);
+            return date('H:i', mktime($time[0], $time[1], $time[2]));
+        }
     }
 }
