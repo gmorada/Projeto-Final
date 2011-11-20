@@ -1,0 +1,321 @@
+*{
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+}
+
+body{
+    /*background: url("/images/background.jpg") repeat-y scroll 0 0 #11181e;*/
+    background-color: #1e1811;
+    font-family: Tahoma, "Lucida Sans", Arial, sans-serif;
+    font-size: small;
+}
+
+.container{
+    margin: 0 auto;
+}
+
+.logout{
+    float: right;
+    position: relative;
+    top: 14px;
+    right: 10px;
+}
+
+.logout a {
+    color: white;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-right: 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.menu {
+    background: #000066;
+    /*background: #1000cc;*/
+    border-bottom: 2px solid #000045;
+    border-left: 2px solid #000066;
+    border-top: 2px solid #000066;
+    border-right: 2px solid #000045;
+    font-size: 90%;
+    font-weight: bold;
+    height: 40px;
+    margin: 40px 0 40px 0;
+    padding: 0 0 0 10px;
+    text-transform: uppercase;
+}
+
+.menu ul
+{
+    list-style-type: none;
+}
+
+.menu li {
+    float: left;
+}
+
+.menu li a {
+    display: block;
+    color: #fff;
+    line-height: 40px;
+    padding: 0 21px;
+    text-decoration: none;
+}
+
+.menu li a:hover{
+    background: steelblue;
+    color: lightsteelblue;
+}
+
+.menu li ul
+{
+    display:none;
+    height:auto;
+    padding:0px;
+    margin:0px;
+    border:0px;
+    position:absolute;
+}
+
+.menu li:hover ul
+{
+    display:block;
+}
+
+.menu li ul li a:hover{
+    background: grey;
+/*    border-bottom: 2px solid grey;*/
+    /*color: #847FF2;*/
+    color: lightgrey;
+}
+
+.menu li.last a{
+    margin: 0 -5px 0 0;
+}
+
+.flashNotice
+{
+    background-color: goldenrod;
+    width: auto;
+    text-align: center;
+}
+
+.flashMessage
+{
+    color: black;
+    font-size: large;
+}
+
+.content{
+    background: #b2b2d1;
+    padding: 0 0 40px 0;
+    border: 0;
+}
+
+.loginContent{
+    background: #b2b2d1;    
+    margin: 0 auto;
+    padding: 0 0 40px 0;
+    width: 845px;
+
+}
+
+h1{    
+    color: #4829a3;
+    font-family: "Century Gothic", "Eras Demi ITC", sans-serif;
+    margin: 0 0 10px 0;
+    padding: 20px 0 0 0;
+    text-align: center;
+}
+
+.filter
+{
+    text-align: center;
+}
+
+.filterMessage
+{
+    font-weight: bold;
+    color: #4829a3;
+}
+
+table{
+    margin: 0 auto;
+}
+
+table.tablesorter thead tr .header {
+	background-image: url("/images/bg.gif");
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+
+table.tablesorter thead tr .headerSortUp {
+	background-image: url("/images/asc.gif");
+}
+table.tablesorter thead tr .headerSortDown {
+	background-image: url("/images/desc.gif");
+}
+
+thead{
+    background-color: grey;
+}
+
+tbody{
+    background-color: lightgrey;
+}
+
+tbody th{
+    background-color: grey;
+}
+
+tfoot td{
+    background-color: grey;
+}
+
+td, th{
+    padding: 10px;
+    text-align: center;
+}
+
+.edit a.button{
+    margin: 0 0 0 0;
+}
+
+.delete a.button{
+    margin: 0 0 0 0;
+}
+
+.button	{
+    display: block;
+    text-align: center;
+    border: 0;
+}
+
+.button:hover	{
+    /*background: #000099;*/
+    left: 1px;
+    position: relative;
+    top: 1px;
+    border: 0;
+}
+
+table#form tbody tr th{
+    text-align: right;
+}
+
+#loginForm{
+    font-weight: bold;
+    margin: 10px 0 10px 200px;
+}
+
+.footer{
+    background: #000066;    
+    clear:both;
+    color: white;
+    margin: 20px 0 20px 0;
+    padding: 20px 20px 20px 20px;
+    text-align: center;
+}
+
+input[type=text] {
+    width: 200px;
+}
+
+input[type=password] {
+    width: 200px;
+}
+
+select{
+    width: 200px;
+}
+
+.new
+{
+}
+
+.new a
+{
+    background-image: url("/images/new.png");
+    background-repeat: no-repeat;
+    height: 20px;
+    width: 20px;
+}
+
+.edit
+{
+}
+
+.edit a
+{
+    background-image: url("/images/edit.png");
+    background-repeat: no-repeat;
+    height: 20px;
+    width: 20px;
+}
+
+.delete
+{
+}
+
+.delete a
+{
+    background-image: url("/images/delete.png");
+    background-repeat: no-repeat;
+    height: 20px;
+    width: 20px;
+}
+
+.save
+{
+    margin-left: 10px;
+    float: left;
+}
+
+.save input
+{
+    background-image: url("/images/save.png");
+    background-repeat: no-repeat;
+    height: 20px;
+    width: 20px;
+    
+}
+
+.back{
+    margin-right: 10px;
+    float: left;
+}
+
+.back a
+{
+    background-image: url("/images/back.png");
+    background-repeat: no-repeat;
+    height: 20px;
+    width: 20px;
+}
+
+.largeButton	{
+    background: #000066;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    padding: 3px 5px 5px 5px;
+    width: 100px;
+    border: 0;
+}
+
+.largeButton a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.export
+{
+    width: auto;
+    padding: 10px;
+    text-align: right;
+}
+
+.buttons{
+}

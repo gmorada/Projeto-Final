@@ -1,0 +1,733 @@
+Building:
+  connection: doctrine
+  tableName: building
+  columns:
+    buil_cd_key:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    buil_nm_name:
+      type: string(40)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+  relations:
+    Room:
+      local: buil_cd_key
+      foreign: buil_cd_key
+      type: many
+    Room_2:
+      class: Room
+      local: buil_cd_key
+      foreign: buil_cd_key
+      type: many
+Course:
+  connection: doctrine
+  tableName: course
+  columns:
+    cour_cd_key:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    cour_nb_code:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    cour_nm_name:
+      type: string(80)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+  relations:
+    Subject:
+      local: cour_cd_key
+      foreign: cour_cd_key
+      type: many
+Crowd:
+  connection: doctrine
+  tableName: crowd
+  columns:
+    crow_cd_key:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    teac_cd_key:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    crow_nm_name:
+      type: string(2)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    crow_nb_module:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    subj_cd_key:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+  relations:
+    Subject:
+      local: subj_cd_key
+      foreign: subj_cd_key
+      type: one
+    Teacher:
+      local: teac_cd_key
+      foreign: teac_cd_key
+      type: one
+    RoomCrowdDatetime:
+      local: crow_cd_key
+      foreign: crow_cd_key
+      type: many
+Room:
+  connection: doctrine
+  tableName: room
+  columns:
+    room_cd_key:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    buil_cd_key:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    room_nm_number:
+      type: string(10)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    room_nb_vagas:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+  relations:
+    Building:
+      local: buil_cd_key
+      foreign: buil_cd_key
+      type: one
+    Building_2:
+      class: Building
+      local: buil_cd_key
+      foreign: buil_cd_key
+      type: one
+    RoomCrowdDatetime:
+      local: room_cd_key
+      foreign: room_cd_key
+      type: many
+RoomCrowdDatetime:
+  connection: doctrine
+  tableName: room_crowd_datetime
+  columns:
+    rocd_cd_key:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    rcds_cd_key:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    crow_cd_key:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    room_cd_key:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    rocd_nb_weekday:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    rocd_dt_start_time:
+      type: time(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    rocd_dt_final_time:
+      type: time(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+  relations:
+    RoomCrowdDatetimeStatus:
+      local: rcds_cd_key
+      foreign: rcds_cd_key
+      type: one
+    Crowd:
+      local: crow_cd_key
+      foreign: crow_cd_key
+      type: one
+    Room:
+      local: room_cd_key
+      foreign: room_cd_key
+      type: one
+RoomCrowdDatetimeStatus:
+  connection: doctrine
+  tableName: room_crowd_datetime_status
+  columns:
+    rcds_cd_key:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    rcds_nm_name:
+      type: string(40)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+  relations:
+    RoomCrowdDatetime:
+      local: rcds_cd_key
+      foreign: rcds_cd_key
+      type: many
+SfGuardForgotPassword:
+  connection: doctrine
+  tableName: sf_guard_forgot_password
+  columns:
+    id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    user_id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    unique_key:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    expires_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    created_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    updated_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+  relations:
+    SfGuardUser:
+      local: user_id
+      foreign: id
+      type: one
+SfGuardGroup:
+  connection: doctrine
+  tableName: sf_guard_group
+  columns:
+    id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    name:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    description:
+      type: string()
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    created_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    updated_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+  relations:
+    SfGuardGroupPermission:
+      local: id
+      foreign: group_id
+      type: many
+    SfGuardUserGroup:
+      local: id
+      foreign: group_id
+      type: many
+SfGuardGroupPermission:
+  connection: doctrine
+  tableName: sf_guard_group_permission
+  columns:
+    group_id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: false
+    permission_id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: false
+    created_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    updated_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+  relations:
+    SfGuardGroup:
+      local: group_id
+      foreign: id
+      type: one
+    SfGuardPermission:
+      local: permission_id
+      foreign: id
+      type: one
+SfGuardPermission:
+  connection: doctrine
+  tableName: sf_guard_permission
+  columns:
+    id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    name:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    description:
+      type: string()
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    created_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    updated_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+  relations:
+    SfGuardGroupPermission:
+      local: id
+      foreign: permission_id
+      type: many
+    SfGuardUserPermission:
+      local: id
+      foreign: permission_id
+      type: many
+SfGuardRememberKey:
+  connection: doctrine
+  tableName: sf_guard_remember_key
+  columns:
+    id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    user_id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    remember_key:
+      type: string(32)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    ip_address:
+      type: string(50)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    created_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    updated_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+  relations:
+    SfGuardUser:
+      local: user_id
+      foreign: id
+      type: one
+SfGuardUser:
+  connection: doctrine
+  tableName: sf_guard_user
+  columns:
+    id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    first_name:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    last_name:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    email_address:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    username:
+      type: string(128)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    algorithm:
+      type: string(128)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: sha1
+      notnull: true
+      autoincrement: false
+    salt:
+      type: string(128)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    password:
+      type: string(128)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    is_active:
+      type: integer(1)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: '1'
+      notnull: false
+      autoincrement: false
+    is_super_admin:
+      type: integer(1)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: '0'
+      notnull: false
+      autoincrement: false
+    last_login:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    created_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    updated_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+  relations:
+    SfGuardForgotPassword:
+      local: id
+      foreign: user_id
+      type: many
+    SfGuardRememberKey:
+      local: id
+      foreign: user_id
+      type: many
+    SfGuardUserGroup:
+      local: id
+      foreign: user_id
+      type: many
+    SfGuardUserPermission:
+      local: id
+      foreign: user_id
+      type: many
+SfGuardUserGroup:
+  connection: doctrine
+  tableName: sf_guard_user_group
+  columns:
+    user_id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: false
+    group_id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: false
+    created_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    updated_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+  relations:
+    SfGuardGroup:
+      local: group_id
+      foreign: id
+      type: one
+    SfGuardUser:
+      local: user_id
+      foreign: id
+      type: one
+SfGuardUserPermission:
+  connection: doctrine
+  tableName: sf_guard_user_permission
+  columns:
+    user_id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: false
+    permission_id:
+      type: integer(8)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: false
+    created_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    updated_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+  relations:
+    SfGuardPermission:
+      local: permission_id
+      foreign: id
+      type: one
+    SfGuardUser:
+      local: user_id
+      foreign: id
+      type: one
+Subject:
+  connection: doctrine
+  tableName: subject
+  columns:
+    subj_cd_key:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    subj_nm_code:
+      type: string(10)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    subj_nm_name:
+      type: string(40)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    cour_cd_key:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+  relations:
+    Course:
+      local: cour_cd_key
+      foreign: cour_cd_key
+      type: one
+    Crowd:
+      local: subj_cd_key
+      foreign: subj_cd_key
+      type: many
+Teacher:
+  connection: doctrine
+  tableName: teacher
+  columns:
+    teac_cd_key:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    teac_nm_name:
+      type: string(80)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    teac_nm_email:
+      type: string(80)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+  relations:
+    Crowd:
+      local: teac_cd_key
+      foreign: teac_cd_key
+      type: many

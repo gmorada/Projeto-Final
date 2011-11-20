@@ -1,0 +1,7 @@
+all:
+  doctrine:
+    class: sfDoctrineDatabase
+    param:
+      dsn: 'mysql:host=127.0.0.1;dbname=room_manager'
+      username: root
+      password: '123456'

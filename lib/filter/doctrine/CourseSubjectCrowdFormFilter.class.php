@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * CourseSubjectCrowd filter form.
+ *
+ * @package    RoomManager
+ * @subpackage filter
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormFilterTemplate.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
+ */
+class CourseSubjectCrowdFormFilter extends BaseCourseSubjectCrowdFormFilter
+{
+  public function configure()
+  {
+  }
+}
