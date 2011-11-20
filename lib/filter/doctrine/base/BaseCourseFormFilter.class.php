@@ -13,7 +13,7 @@ abstract class BaseCourseFormFilter extends BaseFormFilterDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'cour_nb_code' => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'cour_nb_code' => new sfWidgetFormFilterInput(),
       'cour_nm_name' => new sfWidgetFormFilterInput(array('with_empty' => false)),
     ));
 
