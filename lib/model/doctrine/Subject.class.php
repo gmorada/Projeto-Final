@@ -13,7 +13,7 @@
 class Subject extends BaseSubject
 {
     public function __toString() {
-        return $this->getSubjNmName();
+        return $this->getSubjNmCode()." - ".$this->getSubjNmName();
     }
 
 }
