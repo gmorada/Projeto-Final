@@ -17,7 +17,7 @@ class CourseSubjectCrowdForm extends BaseCourseSubjectCrowdForm
       $this->widgetSchema->setLabels(array(
           'cour_cd_key'    => 'Curso',
           'subj_cd_key'    => 'Disciplina',
-          'cosc_nb_slot'    => 'Vagas'
+          'cosc_nb_slot'    => 'Número de Vagas'
       ));
 
   }
