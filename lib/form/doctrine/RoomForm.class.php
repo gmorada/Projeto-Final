@@ -14,7 +14,8 @@ class RoomForm extends BaseRoomForm
 {
     $this->widgetSchema->setLabels(array(
           'buil_cd_key'    => 'Prédio',
-          'room_nm_number'    => 'Número'
+          'room_nm_number' => 'Número',
+          'room_nb_vagas'  => 'Número de vagas'
       ));
   }
 }
