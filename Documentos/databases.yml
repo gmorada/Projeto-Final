@@ -1,0 +1,7 @@
+all:
+  doctrine:
+    class: sfDoctrineDatabase
+    param:
+      dsn: 'mysql:host=mysql.projetofinaluff.dreamhosters.com;dbname=room_manager'
+      username: projetofinaluff
+      password: 'finalproject'
