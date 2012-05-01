@@ -16,5 +16,19 @@ class CourseForm extends BaseCourseForm
       'cour_nb_code'    => 'Código',
       'cour_nm_name' => 'Nome'
     ));
+
+    $this->validatorSchema->setPostValidator(
+      new sfValidatorCallback(array('callback' => array($this, 'check')))
+    );
+  }
+
+  public function check($validator, $values)
+  {
+    if (($values['cour_nb_code'] != "") || ($values['cour_nm_name'] != ""))
+    {
+
+    	return $values;
+    }
+    throw new sfValidatorError($validator, 'Um dos campos deve ser preenchido');
   }
 }
