@@ -23,8 +23,8 @@
                         <li><a href="<?php echo url_for('Room/index'); ?>">Salas</a></li>
                         <li><a href="<?php echo url_for('Course/index'); ?>">Cursos</a></li>
                         <li><a href="<?php echo url_for('Subject/index'); ?>">Disciplinas</a></li>
-                        <li><a href="<?php echo url_for('Teacher/index'); ?>">Professores</a></li>
                         <li><a href="<?php echo url_for('Crowd/index'); ?>">Turmas</a></li>
+                        <li><a href="<?php echo url_for('Teacher/index'); ?>">Professores</a></li>
                     </ul>
                 </li>
                 <li>
