@@ -14,6 +14,7 @@
          if(sfContext::getInstance()->getUser()->isAuthenticated()){
          ?>
         <div class="logout"><a href="<?php echo url_for('@sf_guard_signout'); ?>">Sair</a></div>
+        <div class="logout"><a href="<?php echo url_for('@sf_guard_signout'); ?>">Ajuda</a></div>        
         <div class="menu">
             <ul>
                 <li>
