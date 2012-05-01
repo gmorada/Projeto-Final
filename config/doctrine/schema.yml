@@ -47,7 +47,7 @@ Course:
       fixed: false
       unsigned: false
       primary: false
-      notnull: true
+      notnull: false
       autoincrement: false
   relations:
     Subject:
@@ -72,7 +72,7 @@ Crowd:
       notnull: false
       autoincrement: false
     crow_nm_name:
-      type: string(2)
+      type: string(3)
       fixed: false
       unsigned: false
       primary: false
@@ -93,13 +93,13 @@ Crowd:
       notnull: true
       autoincrement: false
   relations:
-    Subject:
-      local: subj_cd_key
-      foreign: subj_cd_key
-      type: one
     Teacher:
       local: teac_cd_key
       foreign: teac_cd_key
+      type: one
+    Subject:
+      local: subj_cd_key
+      foreign: subj_cd_key
       type: one
     RoomCrowdDatetime:
       local: crow_cd_key

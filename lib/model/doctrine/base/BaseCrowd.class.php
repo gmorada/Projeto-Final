@@ -12,8 +12,8 @@ Doctrine_Manager::getInstance()->bindComponent('Crowd', 'doctrine');
  * @property string $crow_nm_name
  * @property integer $crow_nb_module
  * @property integer $subj_cd_key
- * @property Subject $Subject
  * @property Teacher $Teacher
+ * @property Subject $Subject
  * @property Doctrine_Collection $RoomCrowdDatetime
  * 
  * @method integer             getCrowCdKey()         Returns the current record's "crow_cd_key" value
@@ -21,16 +21,16 @@ Doctrine_Manager::getInstance()->bindComponent('Crowd', 'doctrine');
  * @method string              getCrowNmName()        Returns the current record's "crow_nm_name" value
  * @method integer             getCrowNbModule()      Returns the current record's "crow_nb_module" value
  * @method integer             getSubjCdKey()         Returns the current record's "subj_cd_key" value
- * @method Subject             getSubject()           Returns the current record's "Subject" value
  * @method Teacher             getTeacher()           Returns the current record's "Teacher" value
+ * @method Subject             getSubject()           Returns the current record's "Subject" value
  * @method Doctrine_Collection getRoomCrowdDatetime() Returns the current record's "RoomCrowdDatetime" collection
  * @method Crowd               setCrowCdKey()         Sets the current record's "crow_cd_key" value
  * @method Crowd               setTeacCdKey()         Sets the current record's "teac_cd_key" value
  * @method Crowd               setCrowNmName()        Sets the current record's "crow_nm_name" value
  * @method Crowd               setCrowNbModule()      Sets the current record's "crow_nb_module" value
  * @method Crowd               setSubjCdKey()         Sets the current record's "subj_cd_key" value
- * @method Crowd               setSubject()           Sets the current record's "Subject" value
  * @method Crowd               setTeacher()           Sets the current record's "Teacher" value
+ * @method Crowd               setSubject()           Sets the current record's "Subject" value
  * @method Crowd               setRoomCrowdDatetime() Sets the current record's "RoomCrowdDatetime" collection
  * 
  * @package    RoomManager
@@ -60,14 +60,14 @@ abstract class BaseCrowd extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => 4,
              ));
-        $this->hasColumn('crow_nm_name', 'string', 2, array(
+        $this->hasColumn('crow_nm_name', 'string', 3, array(
              'type' => 'string',
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
              'notnull' => true,
              'autoincrement' => false,
-             'length' => 2,
+             'length' => 3,
              ));
         $this->hasColumn('crow_nb_module', 'integer', 4, array(
              'type' => 'integer',
@@ -92,13 +92,13 @@ abstract class BaseCrowd extends sfDoctrineRecord
     public function setUp()
     {
         parent::setUp();
-        $this->hasOne('Subject', array(
-             'local' => 'subj_cd_key',
-             'foreign' => 'subj_cd_key'));
-
         $this->hasOne('Teacher', array(
              'local' => 'teac_cd_key',
              'foreign' => 'teac_cd_key'));
+
+        $this->hasOne('Subject', array(
+             'local' => 'subj_cd_key',
+             'foreign' => 'subj_cd_key'));
 
         $this->hasMany('RoomCrowdDatetime', array(
              'local' => 'crow_cd_key',
