@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 01, 2012 at 05:18 PM
+-- Generation Time: May 01, 2012 at 05:27 PM
 -- Server version: 5.5.22
 -- PHP Version: 5.3.10-1ubuntu3
 
@@ -353,16 +353,16 @@ CREATE TABLE IF NOT EXISTS `subject` (
   `subj_nm_name` varchar(40) NOT NULL,
   `cour_cd_key` int(11) DEFAULT NULL,
   PRIMARY KEY (`subj_cd_key`),
-  UNIQUE KEY `subj_nm_code` (`subj_nm_code`),
   KEY `cour_cd_key` (`cour_cd_key`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `subject`
 --
 
 INSERT INTO `subject` (`subj_cd_key`, `subj_nm_code`, `subj_nm_name`, `cour_cd_key`) VALUES
-(1, '', 'APA', NULL);
+(1, '', 'APA', NULL),
+(2, '3421', 'dsv', 1);
 
 -- --------------------------------------------------------
 
