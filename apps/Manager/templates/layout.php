@@ -9,12 +9,24 @@
     <?php include_javascripts() ?>
   </head>
   <body>
-      <div class="container">
-         <?php
-         if(sfContext::getInstance()->getUser()->isAuthenticated()){
-         ?>
-        <div class="logout"><a href="<?php echo url_for('@sf_guard_signout'); ?>">Sair</a></div>
-        <div class="menu">
+     <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Sistema de Controle de Salas</a>
+        </div>
+      </div>
+    </div><!--end navbar-->
+    <div class="container">
+        <?php
+        if(sfContext::getInstance()->getUser()->isAuthenticated()){
+        ?>
+            <div class="logout"><a href="<?php echo url_for('@sf_guard_signout'); ?>">Sair</a></div>
+            <div class="menu">
             <ul>
                 <li>
                     <a>Cadastro</a>
@@ -37,19 +49,24 @@
                 </li>
                 <li><a href="<?php echo url_for('Index/report'); ?>">Relatório</a></li>
             </ul>
-        </div>
+            </div>
+            <div id="content" class="content">
+                <?php if ($sf_user->hasFlash('notice')): ?>
+                    <div class="flashNotice"><span class="flashMessage"><?php echo $sf_user->getFlash('notice') ?></span></div>
+                <?php endif ?>
+            </div>
         <?php
         }
         ?>
-        <div id="content" class="content">
-            <?php if ($sf_user->hasFlash('notice')): ?>
-                <div class="flashNotice"><span class="flashMessage"><?php echo $sf_user->getFlash('notice') ?></span></div>
-            <?php endif ?>
-            <?php echo $sf_content ?>
-        </div>
-        <div class="footer">
-            <span>Copyright &copy; Projeto Final, all rights reserved.</span>
-        </div>
+        <?php echo $sf_content ?>
     </div>
+    <footer class="navbar-fixed-bottom">
+      <hr>
+      <div class="row">
+        <div class="span4 offset5">
+          <p>Copyright 2012 &copy; Projeto Final, all rights reserved.</p>
+        </div><!--end span12-->
+      </div><!--end row-->
+    </footer>
   </body>
 </html>
