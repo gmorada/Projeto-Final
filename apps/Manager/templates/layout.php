@@ -72,8 +72,11 @@
     <footer class="navbar-fixed-bottom">
       <hr>
       <div class="row">
-        <div class="span4 offset5">
+        <div class="span4 offset4">
           <p>Copyright 2012 &copy; Projeto Final, all rights reserved.</p>
+        </div><!--end span12-->
+        <div class="span2 offset2">
+          <img src="/img/logo_ic.png", class="span2">
         </div><!--end span12-->
       </div><!--end row-->
     </footer>
