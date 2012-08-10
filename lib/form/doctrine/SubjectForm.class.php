@@ -17,5 +17,23 @@ class SubjectForm extends BaseSubjectForm
           'subj_nm_code'    => 'Código',
           'cour_cd_key' => 'Curso'
       ));
+
+    $this->validatorSchema->setPostValidator(
+      new sfValidatorCallback(array('callback' => array($this, 'checkCode')))
+    );
+  }
+
+  public function checkCode($validator, $values)
+  {
+  	$code = $values['subj_nm_code'];
+    if ($code != "")
+    {
+    	$subjects = Doctrine::getTable('Subject')->findOneBySubjNmCode($code);
+    	if($subjects)
+    	{
+    		throw new sfValidatorError($validator, 'Já existe uma Disciplina com esse código');
+    	}
+    }
+    return $values;
   }
 }

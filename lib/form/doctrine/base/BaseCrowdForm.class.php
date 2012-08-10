@@ -25,7 +25,7 @@ abstract class BaseCrowdForm extends BaseFormDoctrine
     $this->setValidators(array(
       'crow_cd_key'    => new sfValidatorChoice(array('choices' => array($this->getObject()->get('crow_cd_key')), 'empty_value' => $this->getObject()->get('crow_cd_key'), 'required' => false)),
       'teac_cd_key'    => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Teacher'), 'required' => false)),
-      'crow_nm_name'   => new sfValidatorString(array('max_length' => 2)),
+      'crow_nm_name'   => new sfValidatorString(array('max_length' => 3)),
       'crow_nb_module' => new sfValidatorInteger(),
       'subj_cd_key'    => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Subject'))),
     ));

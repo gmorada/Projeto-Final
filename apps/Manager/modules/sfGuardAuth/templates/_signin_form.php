@@ -1,25 +1,36 @@
 <?php use_helper('I18N') ?>
+<div class="row">
+  <div class="span4 offset4 form_login">
+    <form class="_login" action="<?php echo url_for('@sf_guard_signin') ?>" method="post">
+      <?php echo $form->renderHiddenFields(true) ?>
+      <?php echo $form->renderGlobalErrors() ?>          
+      <fieldset>
+        <legend>Login</legend>
+        <div class="control-group">
+          <label class="control-label" for="signin_username">Usuário ou Email:</label>
+          <div class="controls">
+            <input type="text" class="span3" name="signin[username]" id="signin_username">
+            <?php echo $form['username']->renderError() ?>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="signin_password">Senha:</label>
+          <div class="controls">
+            <input type="password" class="span3" name="signin[password]" id="signin_password">
+            <?php echo $form['password']->renderError() ?>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="checkbox">
+            <input type="checkbox" name="signin[remember]" id="signin_remember">
+            Permanecer conectado
+          </label>
+        </div>
 
-<form class="_login" action="<?php echo url_for('@sf_guard_signin') ?>" method="post">
-  <table id="form">
-    <tbody>
-      <?php echo $form ?>
-    </tbody>
-    <tfoot>
-      <tr>
-        <td colspan="2">
-          <span><input class="largeButton" type="submit" value="<?php echo __('Conectar', null, 'sf_guard') ?>" /></span>
-          
-          <?php $routes = $sf_context->getRouting()->getRoutes() ?>
-          <?php if (isset($routes['sf_guard_forgot_password'])): ?>
-            <a href="<?php echo url_for('@sf_guard_forgot_password') ?>"><?php echo __('Forgot your password?', null, 'sf_guard') ?></a>
-          <?php endif; ?>
-
-          <?php /*if (isset($routes['sf_guard_register'])): ?>
-            <!--&nbsp; <a href="<?php echo url_for('@sf_guard_register') ?>"><?php echo __('Registar-se', null, 'sf_guard') ?></a>-->
-          <?php endif; */?>
-        </td>
-      </tr>
-    </tfoot>
-  </table>
-</form>
+        <div class="form-actions">
+          <button class="btn btn-success span3" type="submit"><?php echo __('Conectar', null, 'sf_guard') ?></button>
+        </div>
+      </fieldset>
+    </form>
+  </div><!--end span12-->
+</div>

@@ -12,9 +12,9 @@ default:
     #language:     en
     #robots:       index, follow
 
-  stylesheets:    [main]
+  stylesheets:    [bootstrap-responsive, bootstrap, style]
 
-  javascripts:    [jquery-latest, jquery.tablesorter.js, scripts]
+  javascripts:    [jquery-latest, jquery.tablesorter.js, scripts, bootstrap]
 
   has_layout:     true
   layout:         layout
