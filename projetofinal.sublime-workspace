@@ -32,6 +32,37 @@
 	},
 	"file_history":
 	[
+		"/home/morada/workspace/www/finalProject/apps/Manager/templates/layout.php",
+		"/home/morada/workspace/www/finalProject/apps/Manager/modules/Index/templates/reportSuccess.php",
+		"/home/morada/Downloads/Gustavo Projeto Final/relatorio.html",
+		"/home/morada/workspace/www/finalProject/apps/Manager/modules/Building/templates/indexSuccess.php",
+		"/home/morada/workspace/www/finalProject/web/css/style.css",
+		"/home/morada/workspace/www/finalProject/apps/Manager/modules/Course/templates/indexSuccess.php",
+		"/home/morada/workspace/www/finalProject/web/css/main.css",
+		"/home/morada/Downloads/Gustavo Projeto Final/cadastrar_predio.html",
+		"/home/morada/workspace/www/finalProject/config/view.yml",
+		"/home/morada/workspace/www/finalProject/apps/Manager/modules/sfGuardAuth/templates/_signin_form.php",
+		"/home/morada/Downloads/Gustavo Projeto Final/login.html",
+		"/home/morada/workspace/www/finalProject/apps/Manager/modules/Building/templates/_form.php",
+		"/home/morada/workspace/www/finalProject/web/js/jquery.metadata.js",
+		"/home/morada/workspace/www/finalProject/apps/Manager/lib/myUser.class.php",
+		"/home/morada/workspace/www/finalProject/apps/Manager/config/settings.yml",
+		"/home/morada/workspace/www/finalProject/apps/Manager/config/security.yml",
+		"/home/morada/workspace/www/finalProject/apps/Manager/config/routing.yml",
+		"/home/morada/workspace/www/finalProject/apps/Manager/config/filters.yml",
+		"/home/morada/workspace/www/finalProject/apps/Manager/config/databases.yml",
+		"/home/morada/workspace/www/finalProject/apps/Manager/config/cache.yml",
+		"/home/morada/workspace/www/finalProject/apps/Manager/config/ManagerConfiguration.class.php",
+		"/home/morada/workspace/www/finalProject/apps/Manager/config/app.yml",
+		"/home/morada/workspace/www/finalProject/web/manager_dev.php",
+		"/home/morada/workspace/www/finalProject/web/index.php",
+		"/home/morada/workspace/www/finalProject/web/js/jquery-latest.js",
+		"/home/morada/workspace/www/finalProject/web/js/bootstrap.js",
+		"/home/morada/Downloads/Gustavo Projeto Final/img/glyphicons-halflings.png",
+		"/home/morada/Downloads/Gustavo Projeto Final/img/glyphicons-halflings-white.png",
+		"/home/morada/Downloads/Gustavo Projeto Final/js/bootstrap.js",
+		"/home/morada/workspace/www/finalProject/web/js/scripts.js",
+		"/home/morada/Downloads/Gustavo Projeto Final/js/jQuery_1.7.2.js",
 		"/home/morada/workspace/www/finalProject/lib/form/doctrine/CourseForm.class.php",
 		"/home/morada/workspace/www/finalProject/lib/form/doctrine/SubjectForm.class.php",
 		"/home/morada/workspace/www/finalProject/lib/model/doctrine/RoomCrowdDatetime.class.php",
@@ -41,7 +72,7 @@
 	],
 	"find":
 	{
-		"height": 0.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -55,6 +86,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"('/');",
+			"            <?"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -71,11 +104,6 @@
 	},
 	"groups":
 	[
-		{
-			"sheets":
-			[
-			]
-		},
 		{
 			"sheets":
 			[
@@ -99,18 +127,11 @@
 				0,
 				1,
 				1
-			],
-			[
-				1,
-				0,
-				2,
-				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.474557481488,
 			1.0
 		],
 		"rows":
@@ -130,6 +151,26 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"repor",
+				"apps/Manager/modules/Index/templates/reportSuccess.php"
+			],
+			[
+				"style",
+				"web/css/style.css"
+			],
+			[
+				"index",
+				"apps/Manager/modules/Building/templates/indexSuccess.php"
+			],
+			[
+				"_for",
+				"apps/Manager/modules/Building/templates/_form.php"
+			],
+			[
+				"layo",
+				"apps/Manager/templates/layout.php"
+			]
 		],
 		"width": 0.0
 	},
@@ -144,7 +185,7 @@
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": false,
-	"side_bar_width": 250.0,
+	"side_bar_visible": true,
+	"side_bar_width": 338.0,
 	"status_bar_visible": true
 }
