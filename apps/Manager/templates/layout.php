@@ -17,7 +17,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Sistema de Controle de Salas</a>
+          <a class="brand" href="<?php echo url_for('Index/index'); ?>">Sistema de Controle de Salas</a>
             <?php
             if(sfContext::getInstance()->getUser()->isAuthenticated()){
             ?>
