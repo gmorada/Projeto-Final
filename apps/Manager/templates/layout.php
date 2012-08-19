@@ -65,6 +65,14 @@
                   <strong><?php echo $sf_user->getFlash('notice') ?></strong>
               </div>
             <?php endif ?>
+
+            <?php if ($sf_user->hasFlash('filter')): ?>
+              <div class="alert alert-info">
+                  <button data-dismiss="alert" class="close" type="button">×</button>
+                  <strong><?php echo $sf_user->getFlash('filter') ?></strong>
+              </div>
+            <?php endif ?>
+
         <?php
         }
         ?>
