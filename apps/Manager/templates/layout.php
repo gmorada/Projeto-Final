@@ -58,12 +58,21 @@
     <div class="container">
         <?php
         if(sfContext::getInstance()->getUser()->isAuthenticated()){
-        ?>
-            <div id="content" class="content">
-                <?php if ($sf_user->hasFlash('notice')): ?>
-                    <div class="flashNotice"><span class="flashMessage"><?php echo $sf_user->getFlash('notice') ?></span></div>
-                <?php endif ?>
-            </div>
+        ?>            
+            <?php if ($sf_user->hasFlash('notice')): ?>
+              <div class="alert alert-success">
+                  <button data-dismiss="alert" class="close" type="button">×</button>
+                  <strong><?php echo $sf_user->getFlash('notice') ?></strong>
+              </div>
+            <?php endif ?>
+
+            <?php if ($sf_user->hasFlash('filter')): ?>
+              <div class="alert alert-info">
+                  <button data-dismiss="alert" class="close" type="button">×</button>
+                  <strong><?php echo $sf_user->getFlash('filter') ?></strong>
+              </div>
+            <?php endif ?>
+
         <?php
         }
         ?>
