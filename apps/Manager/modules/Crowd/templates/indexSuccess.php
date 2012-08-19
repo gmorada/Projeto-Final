@@ -1,12 +1,11 @@
 <div class="row">
   <div class="span12">
-    <h1 class="title">Turmas<a href="<?php echo url_for('Crowd/new') ?>" class="btn btn-inverse" title="Cadastar"><i class="icon-plus-sign icon-white"></i> Cadastrar nova turma</a></h1>
-        <form class="well form-search form_filter" method="post" action="">
-           <legend>Filtrar por disciplina:</legend>
-           <label>Nome da disciplina:</label>
-           <input type="text" class="span3 search-query" name="filter">
-           <button type="submit" class="btn">Filtrar</button>
-         </form>
+    <form class="well form-search form_filter" method="post" action="">
+        <legend>Filtrar por disciplina:</legend>
+        <label>Nome da disciplina:</label>
+        <input type="text" class="span3 search-query" name="filter">
+        <button type="submit" class="btn">Filtrar</button>
+    </form>
     <table class="table table-striped tablesorter">
       <thead>
         <tr>
@@ -24,8 +23,12 @@
             if(!count($crowds)){
         ?>
                 <tr>
+                  <td></td>
                   <td colspan="1"><?php echo $subject ?></td>
-                  <td><span class="new"><a class="button" href="<?php echo url_for('Crowd/new?subj_cd_key='.$subject->getSubjCdKey()) ?>"></a></span></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><a href="<?php echo url_for('Crowd/new?subj_cd_key='.$subject->getSubjCdKey()) ?>" class="btn btn-success" title="Alocar"><i class="icon-plus icon-white"></i> </a></td>
                 </tr>
         <?php
             }
