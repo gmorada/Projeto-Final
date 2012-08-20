@@ -1,3 +1,3 @@
 
-<?php include_partial('form', array('form' => $form, 'crowd' => $crowd)) ?>
+<?php include_partial('form', array('form' => $form)) ?>
 </body>
