@@ -1,26 +1,22 @@
-
-    <h1>Alocar Sala para Turmas</h1>
-    <table class="tablesorter">
+<div class="row">
+    <div class="span12">
+      <h1 class="title">Alocar Sala para Turmas</h1>
+      <table class="table table-striped tablesorter">
         <thead>
-            <tr>
- <!--           <th>Status</th> -->
-                <th>Código</th>
-                <th>Disciplina</th>
-                <th>Turma</th>
-                <th>Modulo</th>
-                <th>Dia da Semana</th>
-                <th>Horário de Inicio</th>
-                <th>Horário de Término</th>
-                <th>Sala</th>
-                <th></th>
-                <th></th><!--
-                <th><span class="back"><a class="button" href="<?php// echo url_for('Crowd/index') ?>">Voltar</a></span></th>
-                <th><span class="new"><a class="button" href="<?php// echo url_for('RoomCrowdDatetime/new?crow_cd_key='.$crowCdKey) ?>">Alocar Turma</a></span></th>
--->
-            </tr>
+          <tr>
+            <th>Código</th>
+            <th>Disciplina</th>
+            <th>Turma</th>
+            <th>Modulo</th>
+            <th>Dia da Semana</th>
+            <th>Horário de Inicio</th>
+            <th>Horário de Término</th>
+            <th>Sala</th>
+            <th></th>
+          </tr>
         </thead>
-      <tbody>
-          <?php foreach ($crowds as $crowd):
+        <tbody>
+         <?php foreach ($crowds as $crowd):
             $room_crowd_datetimes = Doctrine::getTable('RoomCrowdDatetime')->findByCrowCdKey($crowd->getCrowCdKey());
             if(count($room_crowd_datetimes)){
         ?>
@@ -41,8 +37,8 @@
                     {
                     ?>
                         <td><?php echo $room_crowd_datetime->getRoom(); ?></td>
-                        <td><span class="edit"><a class="button" href="<?php echo url_for('RoomCrowdDatetime/edit?rocd_cd_key='.$room_crowd_datetime->getRocdCdKey()) ?>"></a></span></td>
-                        <td><span class="delete"><?php echo link_to(' ', 'RoomCrowdDatetime/delete?rocd_cd_key='.$room_crowd_datetime->getRocdCdKey(), array('class' => 'button','method' => 'delete', 'confirm' => 'Você tem certeza que deseja desalocar essa sala?')) ?></span></td>
+                        <td><a href="<?php echo url_for('RoomCrowdDatetime/edit?rocd_cd_key='.$room_crowd_datetime->getRocdCdKey()) ?>" class="btn btn-primary" title="Editar"><i class="icon-pencil icon-white"></i></a></td>
+                        <td><?php echo link_to('<i class="icon-trash icon-white"></i>', 'RoomCrowdDatetime/delete?rocd_cd_key='.$room_crowd_datetime->getRocdCdKey(), array('title' => 'Deletar', 'class' => 'btn btn-danger','method' => 'delete', 'confirm' => 'Você tem certeza que deseja excluir?')) ?></td>
                     <?php
                     }
                     else
@@ -50,12 +46,14 @@
                     ?>
                         <td></td>
                         <td></td>
-                        <td><span class="new"><a class="button" href="<?php echo url_for('RoomCrowdDatetime/new?rocd_cd_key='.$room_crowd_datetime->getRocdCdKey()) ?>"></a></span></td>
+                        <td><a href="<?php echo url_for('RoomCrowdDatetime/new?rocd_cd_key='.$room_crowd_datetime->getRocdCdKey()) ?>" class="btn btn-success" title="Alocar"><i class="icon-plus icon-white"></i> </a></td>
                     <?php
                     }
                 ?>
               </tr>
               <?php endforeach; }?>
           <?php endforeach; ?>
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+    </div><!--end span12-->
+</div><!--end row-->
