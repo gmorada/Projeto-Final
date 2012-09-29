@@ -1,7 +1,7 @@
 <?php use_helper('I18N') ?>
 <div class="row">
   <div class="span4 offset4 form_login">
-    <form class="_login" action="<?php echo url_for('@sf_guard_signin') ?>" method="post">
+    <form class="_login well" action="<?php echo url_for('@sf_guard_signin') ?>" method="post">
       <?php echo $form->renderHiddenFields(true) ?>
       <?php echo $form->renderGlobalErrors() ?>          
       <fieldset>
