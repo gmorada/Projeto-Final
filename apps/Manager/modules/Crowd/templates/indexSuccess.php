@@ -1,5 +1,6 @@
 <div class="row">
   <div class="span12">
+    <h1 class="title">Turmas<a href="<?php echo url_for('Crowd/new') ?>" class="btn btn-inverse" title="Cadastar"><i class="icon-plus-sign icon-white"></i> Cadastrar nova turma</a></h1>    
     <form class="well form-search form_filter" method="post" action="">
         <legend>Filtrar por disciplina:</legend>
         <label>Nome da disciplina:</label>

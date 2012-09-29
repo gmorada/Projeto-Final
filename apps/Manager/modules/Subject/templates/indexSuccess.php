@@ -3,7 +3,7 @@
     <h1 class="title">Disciplinas<a href="<?php echo url_for('Subject/new') ?>" class="btn btn-inverse" title="Cadastar"><i class="icon-plus-sign icon-white"></i> Cadastrar nova disciplina</a></h1>
     <form class="well form-search form_filter" method="post" action="">
        <legend>Filtrar por curso:</legend>
-       <label>Nome da curso:</label>
+       <label>Nome do curso:</label>
        <input type="text" class="span3 search-query" name="filter">
        <button type="submit" class="btn">Filtrar</button>
      </form>
