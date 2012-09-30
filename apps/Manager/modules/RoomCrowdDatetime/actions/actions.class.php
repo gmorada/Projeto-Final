@@ -69,6 +69,7 @@ class RoomCrowdDatetimeActions extends sfActions
         $this->getUser()->setFlash('notice', 'Alocado com sucesso!');
         $this->redirect('RoomCrowdDatetime/index');
     }
+    $this->roomCrowdDatetime = $room_crowd_datetime;
     $this->setTemplate('edit');
   }
 
