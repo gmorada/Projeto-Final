@@ -40,19 +40,19 @@ class RoomCrowdDatetimeValidatorSchema extends sfValidatorBase
                         {
                             if(($first->getRocdDtStartTime() <= $second->getRocdDtStartTime()) && ($first->getRocdDtFinalTime() > $second->getRocdDtStartTime()))
                             {
-                                $errorSchema->addError(new sfValidatorError($this, 'Esse sala não pode ser alocado nesse horário'), 'room_cd_key');
+                                $errorSchema->addError(new sfValidatorError($this, 'Essa sala não pode ser alocado nesse horário'), 'room_cd_key');
                             }
                             else if(($first->getRocdDtFinalTime() >= $second->getRocdDtFinalTime()) && ($first->getRocdDtStartTime() < $second->getRocdDtFinalTime()))
                             {
-                                $errorSchema->addError(new sfValidatorError($this, 'Esse sala não pode ser alocado nesse horário'), 'room_cd_key');
+                                $errorSchema->addError(new sfValidatorError($this, 'Essa sala não pode ser alocado nesse horário'), 'room_cd_key');
                             }
                             else if(($second->getRocdDtStartTime() <= $first->getRocdDtStartTime()) && ($second->getRocdDtFinalTime() > $first->getRocdDtStartTime()))
                             {
-                                $errorSchema->addError(new sfValidatorError($this, 'Esse sala não pode ser alocado nesse horário'), 'room_cd_key');
+                                $errorSchema->addError(new sfValidatorError($this, 'Essa sala não pode ser alocado nesse horário'), 'room_cd_key');
                             }
                             else if(($second->getRocdDtFinalTime() >= $first->getRocdDtFinalTime()) && ($second->getRocdDtStartTime() < $first->getRocdDtFinalTime()))
                             {
-                                $errorSchema->addError(new sfValidatorError($this, 'Esse sala não pode ser alocado nesse horário'), 'room_cd_key');
+                                $errorSchema->addError(new sfValidatorError($this, 'Essa sala não pode ser alocado nesse horário'), 'room_cd_key');
                             }
                         }
                     }

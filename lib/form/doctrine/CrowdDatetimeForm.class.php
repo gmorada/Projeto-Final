@@ -32,5 +32,7 @@ class CrowdDatetimeForm extends BaseRoomCrowdDatetimeForm
           'room_cd_key' => 'Sala',
           'crow_cd_key' => 'Turma'
         ));
+      
+      $this->mergePostValidator(new CrowdDatetimeValidatorSchema());
   }
 }
