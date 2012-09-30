@@ -22,6 +22,8 @@ class TeacherCrowdForm extends BaseCrowdForm
           'crow_nm_name'    => 'Turma',
           'crow_nb_module'  => 'Modulo'
       ));
+            
+      $this->mergePostValidator(new TeacherCrowdValidatorSchema());
 
       /*if($this->getObject()->isNew())
       {

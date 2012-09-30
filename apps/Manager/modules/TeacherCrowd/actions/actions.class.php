@@ -60,8 +60,8 @@ class TeacherCrowdActions extends sfActions
   public function executeUpdate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
-    $this->forward404Unless($crowd = Doctrine::getTable('Crowd')->find(array($request->getParameter('crow_cd_key'))), sprintf('Object crowd does not exist (%s).', $request->getParameter('crow_cd_key')));
-    $this->form = new TeacherCrowdForm($crowd);
+    $this->forward404Unless($this->crowd = Doctrine::getTable('Crowd')->find(array($request->getParameter('crow_cd_key'))), sprintf('Object crowd does not exist (%s).', $request->getParameter('crow_cd_key')));
+    $this->form = new TeacherCrowdForm($this->crowd);
 
     if($this->processForm($request, $this->form))
     {
