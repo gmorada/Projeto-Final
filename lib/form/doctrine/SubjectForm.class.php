@@ -27,6 +27,9 @@ class SubjectForm extends BaseSubjectForm
   {
         $errorSchema = new sfValidatorErrorSchema($validator);
         $code = $values['subj_nm_code'];
+        $name = $values['subj_nm_name'];
+        $course = $values['cour_cd_key'];
+        
         if ($code != "")
         {
             $subjects = Doctrine::getTable('Subject')->findBySubjNmCode($code);
@@ -36,6 +39,15 @@ class SubjectForm extends BaseSubjectForm
                     $errorSchema->addError(new sfValidatorError($validator, 'Já existe uma Disciplina com esse código'), 'subj_nm_code');
             }
         }
+        
+        $subjects = Doctrine::getTable('Subject')->findBySubjNmNameAndCourCdKey($name, $course);
+        foreach ($subjects as $subject)
+        {
+            if($subject->getSubjCdKey() != $values['subj_cd_key'])
+                $errorSchema->addError(new sfValidatorError($validator, 'Já existe uma Disciplina com esse nome no Curso'), 'subj_nm_name');
+        }
+        
+        
         
         if (count($errorSchema))
         {
