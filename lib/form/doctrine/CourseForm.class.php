@@ -24,11 +24,42 @@ class CourseForm extends BaseCourseForm
 
   public function check($validator, $values)
   {
-    if (($values['cour_nb_code'] != "") || ($values['cour_nm_name'] != ""))
-    {
+        $errorSchema = new sfValidatorErrorSchema($validator);
+        $code = $values['cour_nb_code'];
+        $name = $values['cour_nm_name'];
+        $field = 'cour_nb_code';
+        
+        $courses = array();
+        if (($code == "") && ($name == ""))
+        {
+            $errorSchema->addError(new sfValidatorError($validator, 'O código ou o nome do Curso deve ser preenchido'), $field);
+        }        
+        if (($code != "") && ($name != ""))
+        {
+            $courses = Doctrine::getTable('Course')->findByCourNbCodeOrCourNmName($code, $name);
+            $message = 'Já existe um curso com esse nome ou código';
+        }
+        else if($code != "")
+        {
+            $courses = Doctrine::getTable('Course')->findByCourNbCode($code);
+            $message = 'Já existe um curso com esse código';
+        }
+        else if($name != "")
+        {
+            $courses = Doctrine::getTable('Course')->findByCourNmName($name);
+            $message = 'Já existe um curso com esse nome';
+            $field = 'cour_nm_name';
+        }
 
-    	return $values;
-    }
-    throw new sfValidatorError($validator, 'Um dos campos deve ser preenchido');
+        foreach ($courses as $course)
+        {
+            if($course->getCourCdKey() != $values['cour_cd_key'])
+                $errorSchema->addError(new sfValidatorError($validator, $message), $field);
+        }
+        if (count($errorSchema))
+        {
+            throw new sfValidatorErrorSchema($validator, $errorSchema);
+        }
+        return $values;
   }
 }
