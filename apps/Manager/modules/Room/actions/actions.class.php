@@ -18,7 +18,7 @@ class RoomActions extends sfActions
       if($request->getParameter('filter'))
       {
           $this->rooms = $this->rooms->where("UPPER(a.Building.buil_nm_name) LIKE ('%".$request->getParameter('filter')."%')");
-          $this->getUser()->setFlash('filter', 'Filtrado por '.$request->getParameter('filter'));
+          $this->getUser()->setFlash('filter', 'Filtrado por '.$request->getParameter('filter'), $persist=false);
       }
       
       $this->rooms = $this->rooms->execute();

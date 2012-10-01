@@ -18,7 +18,7 @@ class TeacherCrowdActions extends sfActions
 /*    if($request->getParameter('filter'))
     {
         $this->subjects = $this->subjects->where("UPPER(a.subj_nm_name) LIKE ('%".$request->getParameter('filter')."%')");
-        $this->getUser()->setFlash('filter', 'Filtrado por '.$request->getParameter('filter'));
+        $this->getUser()->setFlash('filter', 'Filtrado por '.$request->getParameter('filter'), $persist=false);
     }*/
 
     $this->crowds = $this->crowds->execute();
