@@ -25,15 +25,22 @@ class SubjectForm extends BaseSubjectForm
 
   public function checkCode($validator, $values)
   {
-  	$code = $values['subj_nm_code'];
-    if ($code != "")
-    {
-    	$subjects = Doctrine::getTable('Subject')->findOneBySubjNmCode($code);
-    	if($subjects)
-    	{
-    		throw new sfValidatorError($validator, 'Já existe uma Disciplina com esse código');
-    	}
-    }
-    return $values;
+        $errorSchema = new sfValidatorErrorSchema($validator);
+        $code = $values['subj_nm_code'];
+        if ($code != "")
+        {
+            $subjects = Doctrine::getTable('Subject')->findBySubjNmCode($code);
+            foreach ($subjects as $subject)
+            {
+                if($subject->getSubjCdKey() != $values['subj_cd_key'])
+                    $errorSchema->addError(new sfValidatorError($validator, 'Já existe uma Disciplina com esse código'), 'subj_nm_code');
+            }
+        }
+        
+        if (count($errorSchema))
+        {
+            throw new sfValidatorErrorSchema($validator, $errorSchema);
+        }
+        return $values;
   }
 }
