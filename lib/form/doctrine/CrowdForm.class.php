@@ -19,6 +19,9 @@ class CrowdForm extends BaseCrowdForm
           'crow_nb_module'  => 'Modulo'
       ));
 
+      $this->validatorSchema->setPostValidator(
+        new sfValidatorCallback(array('callback' => array($this, 'check')))
+      );
       /*if($this->getObject()->isNew())
       {
         $courseSubjectCrowd = new CourseSubjectCrowd();
@@ -29,5 +32,25 @@ class CrowdForm extends BaseCrowdForm
         $courseSubjectCrowd = Doctrine::getTable('CourseSubjectCrowd')->findOneByCrowCdKey($this->getObject()->getCrowCdKey());
       }
       $this->embedForm('CourseSubjectCrowd_0', new CourseSubjectCrowdForm($courseSubjectCrowd));*/
+  }
+  
+  public function check($validator, $values)
+  {
+        $errorSchema = new sfValidatorErrorSchema($validator);        
+        $name = $values['crow_nm_name'];
+        $subject = $values['subj_cd_key'];
+        
+        $crowds = Doctrine::getTable('Crowd')->findByCrowNmNameAndSubjCdKey($name, $subject);
+        foreach ($crowds as $crowd)
+        {
+            if($crowd->getCrowCdKey() != $values['crow_cd_key'])
+                $errorSchema->addError(new sfValidatorError($validator, 'Já existe uma Turma com esse nome na Disciplina'), 'crow_nm_name');
+        }
+        
+        if (count($errorSchema))
+        {
+            throw new sfValidatorErrorSchema($validator, $errorSchema);
+        }
+        return $values;
   }
 }
