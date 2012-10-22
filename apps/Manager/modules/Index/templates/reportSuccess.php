@@ -1,6 +1,14 @@
 <div class="row">
     <div class="span12">
-        <h1 class="title">Relatório <a href="<?php echo url_for('Index/reportExcel'); ?>" class="btn btn-inverse" title="Exportar para Excel"><i class="icon-download-alt icon-white"></i> Exportar para Excel</a></h1>
+        <h1 class="title">Relatório 
+            <?php
+                if(sfContext::getInstance()->getUser()->isAuthenticated()){
+            ?>
+                <a href="<?php echo url_for('Index/reportExcel'); ?>" class="btn btn-inverse" title="Exportar para Excel"><i class="icon-download-alt icon-white"></i> Exportar para Excel</a>
+            <?php
+                }
+            ?>
+        </h1>
         <table class="table table-striped">
             <thead>
                 <tr>
