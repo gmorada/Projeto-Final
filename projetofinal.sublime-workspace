@@ -7,6 +7,14 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "apps/Manager/modules/TeacherCrowd/actions/actions.class.php",
+			"settings":
+			{
+				"buffer_size": 3248,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -32,9 +40,20 @@
 	},
 	"file_history":
 	[
-		"/home/morada/workspace/www/finalProject/apps/Manager/modules/Crowd/actions/actions.class.php",
-		"/home/morada/workspace/www/finalProject/apps/Manager/modules/Crowd/templates/indexSuccess.php",
+		"/home/morada/workspace/www/finalProject/lib/form/doctrine/TeacherCrowdForm.class.php",
+		"/home/morada/workspace/www/finalProject/web/css/main.css",
 		"/home/morada/workspace/www/finalProject/apps/Manager/templates/layout.php",
+		"/home/morada/workspace/www/finalProject/apps/Manager/modules/Room/templates/indexSuccess.php",
+		"/home/morada/workspace/www/finalProject/apps/Manager/modules/Crowd/templates/indexSuccess.php",
+		"/home/morada/workspace/www/finalProject/apps/Manager/modules/CrowdDatetime/templates/indexSuccess.php",
+		"/home/morada/workspace/www/finalProject/apps/Manager/modules/Teacher/templates/indexSuccess.php",
+		"/home/morada/workspace/www/finalProject/apps/Manager/modules/Course/templates/indexSuccess.php",
+		"/home/morada/workspace/www/finalProject/apps/Manager/modules/Subject/templates/indexSuccess.php",
+		"/home/morada/workspace/www/finalProject/apps/Manager/modules/sfGuardAuth/templates/_signin_form.php",
+		"/home/morada/workspace/www/finalProject/apps/Manager/modules/sfGuardAuth/templates/signinSuccess.php",
+		"/home/morada/workspace/www/finalProject/apps/Manager/modules/sfGuardAuth/templates/secureSuccess.php",
+		"/home/morada/workspace/www/finalProject/apps/Manager/modules/sfGuardAuth/templates/indexSuccess.php",
+		"/home/morada/workspace/www/finalProject/apps/Manager/modules/Crowd/actions/actions.class.php",
 		"/home/morada/workspace/www/finalProject/web/css/style.css",
 		"/home/morada/workspace/www/finalProject/apps/Manager/modules/Course/templates/_form.php",
 		"/home/morada/workspace/www/finalProject/apps/Manager/modules/TeacherCrowd/templates/_form.php",
@@ -62,7 +81,6 @@
 		"/home/morada/Downloads/Gustavo Projeto Final/alocar_turma_sala.html",
 		"/home/morada/Downloads/Gustavo Projeto Final/cadastrar_predio.html",
 		"/home/morada/workspace/www/finalProject/apps/Manager/modules/Building/templates/indexSuccess.php",
-		"/home/morada/workspace/www/finalProject/apps/Manager/modules/CrowdDatetime/templates/indexSuccess.php",
 		"/home/morada/workspace/www/finalProject/apps/Manager/modules/Room/templates/editSuccess.php",
 		"/home/morada/workspace/www/finalProject/apps/Manager/modules/Room/templates/newSuccess.php",
 		"/home/morada/workspace/www/finalProject/apps/Manager/modules/Subject/templates/editSuccess.php",
@@ -76,13 +94,10 @@
 		"/home/morada/workspace/www/finalProject/apps/Manager/modules/Crowd/templates/editSuccess.php",
 		"/home/morada/workspace/www/finalProject/apps/Manager/modules/Crowd/templates/newSuccess.php",
 		"/home/morada/Downloads/Gustavo Projeto Final/cadastrar_sala.html",
-		"/home/morada/workspace/www/finalProject/apps/Manager/modules/sfGuardAuth/templates/_signin_form.php",
 		"/home/morada/workspace/www/finalProject/apps/Manager/modules/Building/templates/editSuccess.php",
 		"/home/morada/workspace/www/finalProject/apps/Manager/modules/Building/templates/newSuccess.php",
 		"/home/morada/workspace/www/finalProject/apps/Manager/modules/Index/templates/reportSuccess.php",
 		"/home/morada/Downloads/Gustavo Projeto Final/relatorio.html",
-		"/home/morada/workspace/www/finalProject/apps/Manager/modules/Course/templates/indexSuccess.php",
-		"/home/morada/workspace/www/finalProject/web/css/main.css",
 		"/home/morada/workspace/www/finalProject/config/view.yml",
 		"/home/morada/Downloads/Gustavo Projeto Final/login.html",
 		"/home/morada/workspace/www/finalProject/web/js/jquery.metadata.js",
@@ -130,6 +145,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"tablesorter",
+			"loginContent",
+			"login",
 			"images",
 			"turma",
 			"crow",
@@ -153,8 +171,37 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "apps/Manager/modules/TeacherCrowd/actions/actions.class.php",
+					"settings":
+					{
+						"buffer_size": 3248,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 510.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
