@@ -4,6 +4,9 @@
     <form class="_login well" action="<?php echo url_for('@sf_guard_signin') ?>" method="post">
       <?php echo $form->renderHiddenFields(true) ?>
       <?php echo $form->renderGlobalErrors() ?>          
+      <div class="control-group">
+        <a class="btn btn-success pull-right" href="<?php echo url_for('Index/report'); ?>">Quadro de horários</a>
+      </div>
       <fieldset>
         <legend>Login</legend>
         <div class="control-group">
