@@ -20,6 +20,8 @@ class RoomForm extends BaseRoomForm
     $this->validatorSchema->setPostValidator(
         new sfValidatorCallback(array('callback' => array($this, 'checkCode')))
     );
+    
+    $this->mergePostValidator(new RoomValidatorSchema());
   }
 
   public function checkCode($validator, $values)
