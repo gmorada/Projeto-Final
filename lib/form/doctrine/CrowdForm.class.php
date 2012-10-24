@@ -22,6 +22,9 @@ class CrowdForm extends BaseCrowdForm
       $this->validatorSchema->setPostValidator(
         new sfValidatorCallback(array('callback' => array($this, 'check')))
       );
+      
+      $this->mergePostValidator(new CrowdValidatorSchema());
+
       /*if($this->getObject()->isNew())
       {
         $courseSubjectCrowd = new CourseSubjectCrowd();
