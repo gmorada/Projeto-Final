@@ -17,14 +17,20 @@ class RoomCrowdDatetimeValidatorSchema extends sfValidatorBase
         $crowd = $values['crow_cd_key'];
         $room = $values['room_cd_key'];
         
+        $crowdObj = Doctrine::getTable('Crowd')->findOneByCrowCdKey($crowd);
+        $roomObj = Doctrine::getTable('Room')->findOneByRoomCdKey($room);
+        
+        $errorSchema = new sfValidatorErrorSchema($this);
+        
+        if($crowdObj->getCrowNbModule() > $roomObj->getRoomNbVagas())
+            $errorSchema->addError(new sfValidatorError($this, 'O modulo da turma é maior do que o número de vagas da sala a ser alocada'), 'room_cd_key');
+        
         $roomCrowdDateTimes = Doctrine::getTable('RoomCrowdDatetime')->findByCrowCdKey($crowd);
         
         $crowds = Doctrine::getTable('Crowd')
                 ->createQuery('c')                
                 ->where('c.crow_cd_key <> ?', $crowd)
                 ->execute();
-        
-        $errorSchema = new sfValidatorErrorSchema($this);
         
         if($crowds)
         {
