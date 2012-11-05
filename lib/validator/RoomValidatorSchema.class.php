@@ -16,14 +16,13 @@ class RoomValidatorSchema extends sfValidatorBase
 
         $room_id = $values['room_cd_key'];
 
+        $errorSchema = new sfValidatorErrorSchema($this);
+
         if($room_id != null)
         {
-
             $vagas = $values['room_nb_vagas'];
 
             $crowdDatetimes = Doctrine::getTable('RoomCrowdDatetime')->findByRoomCdKey($room_id);
-
-            $errorSchema = new sfValidatorErrorSchema($this);
 
             if($crowdDatetimes)
             {
