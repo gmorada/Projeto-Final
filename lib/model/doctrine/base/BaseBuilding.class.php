@@ -10,16 +10,13 @@ Doctrine_Manager::getInstance()->bindComponent('Building', 'doctrine');
  * @property integer $buil_cd_key
  * @property string $buil_nm_name
  * @property Doctrine_Collection $Room
- * @property Doctrine_Collection $Room_2
  * 
  * @method integer             getBuilCdKey()    Returns the current record's "buil_cd_key" value
  * @method string              getBuilNmName()   Returns the current record's "buil_nm_name" value
  * @method Doctrine_Collection getRoom()         Returns the current record's "Room" collection
- * @method Doctrine_Collection getRoom2()        Returns the current record's "Room_2" collection
  * @method Building            setBuilCdKey()    Sets the current record's "buil_cd_key" value
  * @method Building            setBuilNmName()   Sets the current record's "buil_nm_name" value
  * @method Building            setRoom()         Sets the current record's "Room" collection
- * @method Building            setRoom2()        Sets the current record's "Room_2" collection
  * 
  * @package    RoomManager
  * @subpackage model
@@ -54,10 +51,6 @@ abstract class BaseBuilding extends sfDoctrineRecord
     {
         parent::setUp();
         $this->hasMany('Room', array(
-             'local' => 'buil_cd_key',
-             'foreign' => 'buil_cd_key'));
-
-        $this->hasMany('Room as Room_2', array(
              'local' => 'buil_cd_key',
              'foreign' => 'buil_cd_key'));
     }

@@ -12,7 +12,6 @@ Doctrine_Manager::getInstance()->bindComponent('Room', 'doctrine');
  * @property string $room_nm_number
  * @property integer $room_nb_vagas
  * @property Building $Building
- * @property Building $Building_2
  * @property Doctrine_Collection $RoomCrowdDatetime
  * 
  * @method integer             getRoomCdKey()         Returns the current record's "room_cd_key" value
@@ -20,14 +19,12 @@ Doctrine_Manager::getInstance()->bindComponent('Room', 'doctrine');
  * @method string              getRoomNmNumber()      Returns the current record's "room_nm_number" value
  * @method integer             getRoomNbVagas()       Returns the current record's "room_nb_vagas" value
  * @method Building            getBuilding()          Returns the current record's "Building" value
- * @method Building            getBuilding2()         Returns the current record's "Building_2" value
  * @method Doctrine_Collection getRoomCrowdDatetime() Returns the current record's "RoomCrowdDatetime" collection
  * @method Room                setRoomCdKey()         Sets the current record's "room_cd_key" value
  * @method Room                setBuilCdKey()         Sets the current record's "buil_cd_key" value
  * @method Room                setRoomNmNumber()      Sets the current record's "room_nm_number" value
  * @method Room                setRoomNbVagas()       Sets the current record's "room_nb_vagas" value
  * @method Room                setBuilding()          Sets the current record's "Building" value
- * @method Room                setBuilding2()         Sets the current record's "Building_2" value
  * @method Room                setRoomCrowdDatetime() Sets the current record's "RoomCrowdDatetime" collection
  * 
  * @package    RoomManager
@@ -81,10 +78,6 @@ abstract class BaseRoom extends sfDoctrineRecord
     {
         parent::setUp();
         $this->hasOne('Building', array(
-             'local' => 'buil_cd_key',
-             'foreign' => 'buil_cd_key'));
-
-        $this->hasOne('Building as Building_2', array(
              'local' => 'buil_cd_key',
              'foreign' => 'buil_cd_key'));
 

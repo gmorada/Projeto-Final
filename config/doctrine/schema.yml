@@ -20,11 +20,6 @@ Building:
       local: buil_cd_key
       foreign: buil_cd_key
       type: many
-    Room_2:
-      class: Room
-      local: buil_cd_key
-      foreign: buil_cd_key
-      type: many
 Course:
   connection: doctrine
   tableName: course
@@ -47,7 +42,7 @@ Course:
       fixed: false
       unsigned: false
       primary: false
-      notnull: false
+      notnull: true
       autoincrement: false
   relations:
     Subject:
@@ -72,7 +67,7 @@ Crowd:
       notnull: false
       autoincrement: false
     crow_nm_name:
-      type: string(3)
+      type: string(2)
       fixed: false
       unsigned: false
       primary: false
@@ -92,7 +87,18 @@ Crowd:
       primary: false
       notnull: true
       autoincrement: false
+    crow_cd_parent:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
   relations:
+    Crowd:
+      local: crow_cd_key
+      foreign: crow_cd_parent
+      type: many
     Teacher:
       local: teac_cd_key
       foreign: teac_cd_key
@@ -138,11 +144,6 @@ Room:
       autoincrement: false
   relations:
     Building:
-      local: buil_cd_key
-      foreign: buil_cd_key
-      type: one
-    Building_2:
-      class: Building
       local: buil_cd_key
       foreign: buil_cd_key
       type: one

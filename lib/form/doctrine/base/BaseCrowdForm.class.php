@@ -20,14 +20,16 @@ abstract class BaseCrowdForm extends BaseFormDoctrine
       'crow_nm_name'   => new sfWidgetFormInputText(),
       'crow_nb_module' => new sfWidgetFormInputText(),
       'subj_cd_key'    => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Subject'), 'add_empty' => false)),
+      'crow_cd_parent' => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
       'crow_cd_key'    => new sfValidatorChoice(array('choices' => array($this->getObject()->get('crow_cd_key')), 'empty_value' => $this->getObject()->get('crow_cd_key'), 'required' => false)),
       'teac_cd_key'    => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Teacher'), 'required' => false)),
-      'crow_nm_name'   => new sfValidatorString(array('max_length' => 3)),
+      'crow_nm_name'   => new sfValidatorString(array('max_length' => 2)),
       'crow_nb_module' => new sfValidatorInteger(),
       'subj_cd_key'    => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Subject'))),
+      'crow_cd_parent' => new sfValidatorInteger(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('crowd[%s]');

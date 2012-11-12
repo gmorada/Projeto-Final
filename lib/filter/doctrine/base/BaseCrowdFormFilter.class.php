@@ -17,6 +17,7 @@ abstract class BaseCrowdFormFilter extends BaseFormFilterDoctrine
       'crow_nm_name'   => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'crow_nb_module' => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'subj_cd_key'    => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Subject'), 'add_empty' => true)),
+      'crow_cd_parent' => new sfWidgetFormFilterInput(),
     ));
 
     $this->setValidators(array(
@@ -24,6 +25,7 @@ abstract class BaseCrowdFormFilter extends BaseFormFilterDoctrine
       'crow_nm_name'   => new sfValidatorPass(array('required' => false)),
       'crow_nb_module' => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'subj_cd_key'    => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Subject'), 'column' => 'subj_cd_key')),
+      'crow_cd_parent' => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
     ));
 
     $this->widgetSchema->setNameFormat('crowd_filters[%s]');
@@ -48,6 +50,7 @@ abstract class BaseCrowdFormFilter extends BaseFormFilterDoctrine
       'crow_nm_name'   => 'Text',
       'crow_nb_module' => 'Number',
       'subj_cd_key'    => 'ForeignKey',
+      'crow_cd_parent' => 'Number',
     );
   }
 }
