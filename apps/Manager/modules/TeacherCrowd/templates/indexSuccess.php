@@ -69,20 +69,31 @@
             <td><?php echo $friday; ?></td>
             <td><?php echo $saturday; ?></td>
             <?php
-                if($crowd->Teacher != "")
+                $parent = Doctrine::getTable('Crowd')->findOneByCrowCdParent($crowd->getCrowCdKey());
+                if(!$parent)
                 {
-                ?>
-                    <td><?php echo $crowd->Teacher; ?></td>
-                    <td><a href="<?php echo url_for('TeacherCrowd/edit?crow_cd_key='.$crowd->getCrowCdKey()) ?>" class="btn btn-primary" title="Editar"><i class="icon-pencil icon-white"></i></a></td>
-                    <td><?php echo link_to('<i class="icon-trash icon-white"></i>', 'TeacherCrowd/delete?crow_cd_key='.$crowd->getCrowCdKey(), array('title' => 'Deletar', 'class' => 'btn btn-danger','method' => 'delete', 'confirm' => 'Você tem certeza que deseja excluir?')) ?></td>
-                <?php
+                    if($crowd->Teacher != "")
+                    {
+                    ?>
+                        <td><?php echo $crowd->Teacher; ?></td>
+                        <td><a href="<?php echo url_for('TeacherCrowd/edit?crow_cd_key='.$crowd->getCrowCdKey()) ?>" class="btn btn-primary" title="Editar"><i class="icon-pencil icon-white"></i></a></td>
+                        <td><?php echo link_to('<i class="icon-trash icon-white"></i>', 'TeacherCrowd/delete?crow_cd_key='.$crowd->getCrowCdKey(), array('title' => 'Deletar', 'class' => 'btn btn-danger','method' => 'delete', 'confirm' => 'Você tem certeza que deseja excluir?')) ?></td>
+                    <?php
+                    }
+                    else
+                    {
+                    ?>
+                        <td></td>
+                        <td></td>
+                        <td><a href="<?php echo url_for('TeacherCrowd/new?crow_cd_key='.$crowd->getCrowCdKey()) ?>" class="btn btn-success" title="Alocar"><i class="icon-plus icon-white"></i> </a></td>
+                    <?php
+                    }
                 }
-                else
-                {
+                else{
                 ?>
                     <td></td>
                     <td></td>
-                    <td><a href="<?php echo url_for('TeacherCrowd/new?crow_cd_key='.$crowd->getCrowCdKey()) ?>" class="btn btn-success" title="Alocar"><i class="icon-plus icon-white"></i> </a></td>
+                    <td></td>
                 <?php
                 }
             ?>
