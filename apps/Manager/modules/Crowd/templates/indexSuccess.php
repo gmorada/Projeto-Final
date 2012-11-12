@@ -35,15 +35,31 @@
         <?php
             }
             foreach ($crowds as $crowd){
+                $parent = Doctrine::getTable('Crowd')->findOneByCrowCdParent($crowd->getCrowCdKey());
         ?>
           <tr>
             <td><?php echo $crowd->Subject->getSubjNmCode() ?></td>
             <td><?php echo $crowd->getSubject() ?></td>
             <td><?php echo $crowd->getCrowNmName() ?></td>
             <td><?php echo $crowd->getCrowNbModule() ?></td>
-            <td><a class="btn btn-primary" title="Editar" href="<?php echo url_for('Crowd/edit?crow_cd_key='.$crowd->getCrowCdKey()) ?>"><i class="icon-pencil icon-white"></i></a></td>
-            <td><?php echo link_to('<i class="icon-trash icon-white"></i>', 'Crowd/delete?crow_cd_key='.$crowd->getCrowCdKey(), array('title'=>'Deletar', 'class' => 'btn btn-danger','method' => 'delete', 'confirm' => 'Você tem certeza que deseja excluir?')) ?></td>
-            <td><a href="<?php echo url_for('Crowd/new?subj_cd_key='.$subject->getSubjCdKey()) ?>" class="btn btn-success" title="Alocar"><i class="icon-plus icon-white"></i> </a></td>
+                <?php if(!$parent)
+                {
+                ?>
+                    <td>
+                        <a class="btn btn-primary" title="Editar" href="<?php echo url_for('Crowd/edit?crow_cd_key='.$crowd->getCrowCdKey()) ?>"><i class="icon-pencil icon-white"></i></a>
+                    </td>
+                    <td><?php echo link_to('<i class="icon-trash icon-white"></i>', 'Crowd/delete?crow_cd_key='.$crowd->getCrowCdKey(), array('title'=>'Deletar', 'class' => 'btn btn-danger','method' => 'delete', 'confirm' => 'Você tem certeza que deseja excluir?')) ?></td>
+                    <td><a href="<?php echo url_for('Crowd/new?subj_cd_key='.$subject->getSubjCdKey()) ?>" class="btn btn-success" title="Alocar"><i class="icon-plus icon-white"></i> </a></td>
+                <?php                
+                }
+                else{
+                ?>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                <?php
+                }
+                ?>
           </tr>
             <?php } ?>
         <?php } ?>
