@@ -15,5 +15,10 @@ class Crowd extends BaseCrowd
     public function __toString() {
         return $this->getCrowNmName();
     }
+    
+    public function getCrowdName()
+    {
+        return $this->getCrowNmName()." - ".$this->Subject;
+    }
 
 }

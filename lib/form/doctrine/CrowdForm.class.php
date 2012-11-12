@@ -12,13 +12,22 @@ class CrowdForm extends BaseCrowdForm
 {
   public function configure()
   {
+      $this->setWidget('crow_cd_parent', new sfWidgetFormDoctrineChoice(array(
+          'model' => $this->getRelatedModelName('Crowd'), 
+          'method' => 'getCrowdName', 
+          'add_empty' => true)
+      ));
+      
+      $this->setValidator('crow_cd_parent', new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Crowd'), 'required' => false)));
+      
       $this->widgetSchema->setLabels(array(
           'subj_cd_key'     => 'Disciplina',
           'teac_cd_key'     => 'Professor',
           'crow_nm_name'    => 'Turma',
-          'crow_nb_module'  => 'Modulo'
+          'crow_nb_module'  => 'Modulo',
+          'crow_cd_parent'  => 'Turma Junta'
       ));
-
+      
       $this->validatorSchema->setPostValidator(
         new sfValidatorCallback(array('callback' => array($this, 'check')))
       );
@@ -48,6 +57,16 @@ class CrowdForm extends BaseCrowdForm
         {
             if($crowd->getCrowCdKey() != $values['crow_cd_key'])
                 $errorSchema->addError(new sfValidatorError($validator, 'Já existe uma Turma com esse nome na Disciplina'), 'crow_nm_name');
+        }
+        
+        $id = $values['crow_cd_key'];
+        
+        if($id)
+        {
+            $parent = $values['crow_cd_parent'];
+            
+            if($id == $parent)
+                $errorSchema->addError(new sfValidatorError($validator, 'Você não pode juntar uma turma nela mesma'), 'crow_cd_parent');
         }
         
         if (count($errorSchema))

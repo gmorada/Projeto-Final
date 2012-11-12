@@ -34,6 +34,13 @@
             <?php echo $form['crow_nb_module']->render(array('class'=>'span3')) ?>            
           </div>
         </div>
+        <div class="control-group">
+          <label class="control-label" for="input01"><?php echo $form['crow_cd_parent']->renderLabelName() ?></label>
+          <div class="controls">
+            <?php echo $form['crow_cd_parent']->renderError() ?>
+            <?php echo $form['crow_cd_parent']->render(array('class'=>'span3')) ?>            
+          </div>
+        </div>
         <div class="form-actions">
           <a class="btn" href="<?php echo url_for('Crowd/index') ?>">« Voltar</a>
           <button class="btn btn-success" type="submit">Salvar</button>
