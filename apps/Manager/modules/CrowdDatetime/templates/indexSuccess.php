@@ -17,6 +17,7 @@
         <tbody>
             <?php foreach ($crowds as $crowd):
             $room_crowd_datetimes = Doctrine::getTable('RoomCrowdDatetime')->findByCrowCdKey($crowd->getCrowCdKey());
+            $parent = Doctrine::getTable('Crowd')->findOneByCrowCdParent($crowd->getCrowCdKey());
             if(!count($room_crowd_datetimes)){
         ?>
                 <tr>
@@ -28,8 +29,17 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td></td>                    
-                    <td><a href="<?php echo url_for('CrowdDatetime/new?crow_cd_key='.$crowd->getCrowCdKey()) ?>" class="btn btn-success" title="Alocar"><i class="icon-plus icon-white"></i> </a></td>
+                    <td></td>
+                    <td>
+                        <?php
+                        if(!$parent)
+                        {
+                        ?>
+                            <a href="<?php echo url_for('CrowdDatetime/new?crow_cd_key='.$crowd->getCrowCdKey()) ?>" class="btn btn-success" title="Alocar"><i class="icon-plus icon-white"></i> </a>
+                        <?php
+                        }
+                        ?>
+                    </td>
                 </tr>
         <?php
             }
