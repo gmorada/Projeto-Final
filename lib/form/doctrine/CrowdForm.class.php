@@ -65,8 +65,20 @@ class CrowdForm extends BaseCrowdForm
         {
             $parent = $values['crow_cd_parent'];
             
-            if($id == $parent)
-                $errorSchema->addError(new sfValidatorError($validator, 'Você não pode juntar uma turma nela mesma'), 'crow_cd_parent');
+            if($parent)
+            {
+                if($id == $parent)
+                    $errorSchema->addError(new sfValidatorError($validator, 'Você não pode juntar uma turma nela mesma'), 'crow_cd_parent');
+                else
+                {
+                    $crowdDatetimes = Doctrine::getTable('RoomCrowdDatetime')->findOneByCrowCdKey($parent);
+                                    
+                    if($crowdDatetimes)
+                    {
+                        $errorSchema->addError(new sfValidatorError($validator, 'Você não pode juntar uma turma que já possua horários'), 'crow_cd_parent');
+                    }
+                }
+            }
         }
         
         if (count($errorSchema))
