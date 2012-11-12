@@ -512,3 +512,11 @@ ALTER TABLE `sf_guard_user_permission`
 ALTER TABLE `subject`
   ADD CONSTRAINT `subject_ibfk_1` FOREIGN KEY (`cour_cd_key`) REFERENCES `course` (`cour_cd_key`) ON DELETE SET NULL ON UPDATE CASCADE;
 
+
+
+ALTER TABLE `crowd` ADD `crow_cd_parent` INT NULL DEFAULT NULL ,
+    ADD INDEX ( `crow_cd_parent` ) ;
+
+ALTER TABLE `crowd` ADD FOREIGN KEY ( `crow_cd_parent` ) REFERENCES `room_manager`.`crowd` (
+    `crow_cd_key`
+) ON DELETE SET NULL ON UPDATE SET NULL ;
